@@ -41,8 +41,8 @@ RUN chmod +x /usr/local/bin/*
 
 # Openshift and dynamic user id. https://access.redhat.com/articles/4859371 integration
 # enabled by configuring Bourne shell user profile to call setup-user.sh script.
-ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
-CMD ["bash", "-c", "source /usr/local/bin/setup-user.sh && /usr/local/bin/start-indy.py"]
+# ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+ENTRYPOINT ["bash", "-c", "source /usr/local/bin/setup-user.sh && /usr/local/bin/start-indy.py"]
 
 RUN mkdir -p /etc/indy && mkdir -p /var/log/indy && mkdir -p /usr/share/indy /opt/indy/var/log/indy
 RUN chmod -R 777 /etc/indy && chmod -R 777 /var/log/indy && chmod -R 777 /usr/share/indy
